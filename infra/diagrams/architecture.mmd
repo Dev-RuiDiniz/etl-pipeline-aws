@@ -1,0 +1,9 @@
+flowchart LR
+    A[EventBridge (Schedule)] -->|invokes| B(Lambda ETL)
+    B --> C[Extract: API pública]
+    B --> D[Transform: Pandas]
+    B --> E[Load: PostgreSQL (RDS)]
+    B --> F[S3: raw / processed / logs]
+    B --> G[CloudWatch Logs]
+    E --> H[Optional: Read replicas / BI tools]
+    F --> I[Audit & Backup]

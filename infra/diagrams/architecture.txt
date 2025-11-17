@@ -1,0 +1,7 @@
+[EventBridge/CloudWatch Events] -> [Lambda ETL]
+                                 /     |      \
+                       [API public]  [Pandas]  [Postgres RDS]
+                                         |
+                                      [S3: raw/processed/logs]
+                                         |
+                                    [CloudWatch / SNS alerts]

@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: ETL Pipeline Lambda (Python)
+
+Globals:
+  Function:
+    Timeout: 900
+    Runtime: python3.11
+    MemorySize: 512
+    Environment:
+      Variables:
+        # Variáveis sensíveis devem vir do Secrets Manager (referência abaixo)
+        API_URL: !Ref ApiUrl
+        S3_BUCKET: !Ref S3Bucket
+        AWS_REGION: !Ref AWSRegion
+        DB_HOST: !Ref DBHost
+        DB_USER: !Ref DBUser
+        DB_PASSWORD: !Ref DBPassword
+        DB_NAME: !Ref DBName
+
+Parameters:
+  ApiUrl: Type: String
+  S3Bucket: Type: String
+  AWSRegion: Type: String
+  DBHost: Type: String
+  DBUser: Type: String
+  DBPassword: Type: String
+  DBName: Type: String
+
+Resources:
+  EtlFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src.main.run_pipeline
+      CodeUri: .
+      Policies:
+        - S3WritePolicy:
+            BucketName: !Ref S3Bucket
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - rds-db:connect
+              Resource: "*"
+      Events:
+        ScheduledEvent:
+          Type: Schedule
+          Properties:
+            Schedule: rate(1 day)
+            Enabled: true
+
+Outputs:
+  EtlFunctionName:
+    Description: "ETL Lambda Function name"
+    Value: !Ref EtlFunction
