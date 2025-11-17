@@ -10,17 +10,35 @@ etl-pipeline-aws/
 │   ├── utils/
 │   │   ├── logger.py
 │   │   └── aws.py
-│   └── main.py
-│
-├── tests/
-│   └── test_transform.py
-│
-├── config/
-│   ├── settings.py
+│   ├── main.py
 │   └── __init__.py
 │
-├── .env
-├── .gitignore
+├── config/
+│   ├── settings.py      # Pydantic BaseSettings
+│   └── __init__.py
+│
+├── tests/
+│   ├── test_extractor.py
+│   ├── test_transformer.py
+│   ├── test_loader.py
+│   └── __init__.py
+│
+├── infra/
+│   ├── sam/
+│   │   └── template.yaml
+│   ├── cdk/
+│   │   ├── app.py
+│   │   └── etl_stack.py
+│   ├── serverless/
+│   │   └── serverless.yml
+│   └── diagrams/
+│       ├── architecture.mmd      # Diagrama mermaid
+│       └── architecture.txt      # Versão ASCII
+│
+├── Dockerfile
 ├── requirements.txt
 ├── README.md
-└── estrutura.txt
+├── estrutura.txt
+├── .env
+├── .gitignore
+└── pytest.ini   (opcional)
