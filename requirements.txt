@@ -1,8 +1,25 @@
-boto3
+# Core ETL
 pandas
 requests
+
+# Database
 sqlalchemy
 psycopg2-binary
-python-dotenv
+
+# AWS
+boto3
+botocore
+
+# Settings and configuration
 pydantic
-fastapi
+python-dotenv
+
+# Utils
+typing-extensions
+
+# Tests
+pytest
+pytest-mock
+
+# Optional (para lint e padrões)
+flake8
