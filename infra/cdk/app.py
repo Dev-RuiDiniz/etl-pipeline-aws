@@ -3,5 +3,5 @@ from aws_cdk import App
 from etl_stack import EtlStack
 
 app = App()
-EtlStack(app, "EtlStack")
+EtlStack(app, "EtlPipelineStack")
 app.synth()

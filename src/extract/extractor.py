@@ -7,7 +7,6 @@ logger = get_logger(__name__)
 def extract_data() -> dict:
     """
     Extrai dados da API pública definida no .env / settings.py.
-    Retorna os dados em formato dict.
     """
     url = settings.API_URL
 

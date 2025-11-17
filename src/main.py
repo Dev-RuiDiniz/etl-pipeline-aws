@@ -9,17 +9,12 @@ logger = get_logger(__name__)
 def run_pipeline():
     logger.info("Iniciando pipeline ETL...")
 
-    # Extração
-    raw_data = extract_data()
-    save_to_s3(raw_data, prefix="raw/")
+    raw = extract_data()
+    save_to_s3(raw, prefix="raw/")
 
-    # Transformação
-    df = transform_data(raw_data)
-
-    # Auditoria: salva dataset transformado
+    df = transform_data(raw)
     save_to_s3(df.to_dict(orient="records"), prefix="processed/")
 
-    # Load
     load_data(df)
 
     logger.info("Pipeline finalizado com sucesso.")

@@ -14,7 +14,7 @@ etl-pipeline-aws/
 │   └── __init__.py
 │
 ├── config/
-│   ├── settings.py      # Pydantic BaseSettings
+│   ├── settings.py
 │   └── __init__.py
 │
 ├── tests/
@@ -28,17 +28,17 @@ etl-pipeline-aws/
 │   │   └── template.yaml
 │   ├── cdk/
 │   │   ├── app.py
-│   │   └── etl_stack.py
+│   │   ├── etl_stack.py
+│   │   └── cdk.json
 │   ├── serverless/
 │   │   └── serverless.yml
 │   └── diagrams/
-│       ├── architecture.mmd      # Diagrama mermaid
-│       └── architecture.txt      # Versão ASCII
+│       ├── architecture.mmd
+│       └── architecture.txt
 │
 ├── Dockerfile
 ├── requirements.txt
 ├── README.md
 ├── estrutura.txt
 ├── .env
-├── .gitignore
-└── pytest.ini   (opcional)
+└── .gitignore

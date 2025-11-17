@@ -1,7 +1,4 @@
-# config/settings.py
 from pydantic import BaseSettings, AnyHttpUrl, Field
-from typing import Optional
-
 
 class Settings(BaseSettings):
     # API
@@ -18,12 +15,8 @@ class Settings(BaseSettings):
     AWS_REGION: str = Field("us-east-1", env="AWS_REGION")
     S3_BUCKET: str = Field(..., env="S3_BUCKET")
 
-    # Misc
-    LOG_LEVEL: str = Field("INFO", env="LOG_LEVEL")
-
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
-
 
 settings = Settings()
