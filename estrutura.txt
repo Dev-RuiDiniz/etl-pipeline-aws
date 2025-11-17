@@ -1,0 +1,26 @@
+etl-pipeline-aws/
+│
+├── src/
+│   ├── extract/
+│   │   └── extractor.py
+│   ├── transform/
+│   │   └── transformer.py
+│   ├── load/
+│   │   └── loader.py
+│   ├── utils/
+│   │   ├── logger.py
+│   │   └── aws.py
+│   └── main.py
+│
+├── tests/
+│   └── test_transform.py
+│
+├── config/
+│   ├── settings.py
+│   └── __init__.py
+│
+├── .env
+├── .gitignore
+├── requirements.txt
+├── README.md
+└── estrutura.txt
