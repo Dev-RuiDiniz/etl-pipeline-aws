@@ -25,7 +25,7 @@ Este projeto demonstra arquitetura moderna de dados, boas práticas de engenhari
 
 ## 📐 **Arquitetura do Pipeline**
 
-(C:\Users\RUI FRANCISCO\Downloads\mermaid.png)
+![Arquitetura](assets/image/mermaid.png)
 
 ---
 
